@@ -205,8 +205,6 @@ Express-paytrail
 6. **Контроллер → `services/paytrailService.js` → `config/paytrail.js` + `utils/logger.js`**
 7. Ответ — через `views/*.hbs` или JSON/redirect.
 
-Если хочешь, могу сгенерировать минимальные заготовки файлов под эту схему (готовые к копипасте).
-
 Доп. файлы во время работы:
 
 * `paytrail.log` — логи (создаётся автоматически).
