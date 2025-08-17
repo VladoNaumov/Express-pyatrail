@@ -1,5 +1,6 @@
-
----
+```
+npm i express hbs
+```
 
 # Структура и роли (light-версия)
 
@@ -163,8 +164,6 @@ POST /index?action=callback
 | ----: | ------------- | ----------------------------------------------------------------- |
 |   GET | `/`, `/index` | по `?action=`: create / success / cancel / callback (GET-фоллбек) |
 |  POST | `/`, `/index` | raw JSON body + `?action=callback`                                |
-
-> Если хочешь явные URL — легко добавить алиасы `/payment/create`, `/payment`, но текущая схема уже работает.
 
 ---
 
