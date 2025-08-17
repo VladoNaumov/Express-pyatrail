@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<p class="{{#if isSuccess}}ok{{else}}warn{{/if}}">{{note}}</p>
+
+<style>
+    .ok{color:#0a7a2d}.warn{color:#a15c00}
+    .grid{display:grid;grid-template-columns:160px 1fr;gap:6px 12px;margin-top:12px}
+    .muted{color:#666}
+    .btn{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:8px;border:1px solid #ddd;text-decoration:none}
+    .btn-primary{background:#222;color:#fff;border-color:#222}
+    .btn+.btn{margin-left:8px}
+</style>
+
+<div class="grid">
+    <div class="muted">Transaction ID</div><div>{{tx}}</div>
+    <div class="muted">Status</div><div>{{status}}</div>
+    <div class="muted">Provider</div><div>{{provider}}</div>
+    <div class="muted">Amount</div><div>{{amount}}</div>
+    <div class="muted">Reference</div><div>{{reference}}</div>
+    <div class="muted">Stamp</div><div>{{stamp}}</div>
+</div>
+
+<div>
+    {{#if isSuccess}}
+        <a class="btn btn-primary" href="{{backUrl}}">← Назад в магазин</a>
+    {{else}}
+        <a class="btn" href="/payment/create">Попробовать снова</a>
+        <a class="btn" href="{{backUrl}}">← Назад в магазин</a>
+    {{/if}}
+</div>
