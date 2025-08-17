@@ -10,7 +10,7 @@ const morgan = require('morgan');              // красивый лог зап
 const hbs = require('hbs');                    // шаблонизатор Handlebars для Express
 
 // Наши маршруты оплаты вынесены в отдельный файл
-const paymentRouter = require('./routes/web');
+const webRouter = require('./routes/web');
 
 // Создаём экземпляр приложения Express
 const app = express();
@@ -54,6 +54,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 // Если нужно раздавать статику из папки public — раскомментируй строку ниже
 // app.use(express.static(path.join(__dirname, 'public')));
 
@@ -66,11 +67,9 @@ app.use(cookieParser());
    - GET /payment          → результат (success/cancel)
    - POST /payment         → callback от Paytrail (сервер-сервер)
 */
-app.use('/payment', paymentRouter);
+app.use('/payment', webRouter);
 
-/* ---------------------------------------------------
-   404: если ни один маршрут не сработал — значит "не найдено"
-   ---------------------------------------------------
+/*
    Создаём ошибку 404 и передаём в общий обработчик ошибок ниже.
 */
 app.use((req, res, next) => next(createError(404)));
